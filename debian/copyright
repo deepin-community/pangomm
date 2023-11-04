@@ -3,6 +3,8 @@ Upstream-Name: pangomm
 Upstream-Contact: Murray Cumming <murrayc@murrayc.com>
                   Daniel Elstner <daniel.kitta@googlemail.com>
 Source: https://download.gnome.org/sources/pangomm/
+Files-Excluded: untracked
+Comment: Let's build the docs from source
 
 Files: *
 Copyright: 1998, 2001, 2003, 2006, The pangomm Development Team
@@ -19,14 +21,6 @@ License: LGPL-2.1+
 
 Files: tools/extra_defs_gen/generate_defs_pango.cc
 Copyright: 2001, The Free Software Foundation
-License: GPL-2+
-
-Files: docs/*.pl
-Copyright: 2009  Openismus GmbH  <http://www.openismus.com/>
-License: GPL-2+
-
-Files: docs/*.xsl
-Copyright: 2009  Daniel Elstner <daniel.kitta@gmail.com>
 License: GPL-2+
 
 Files: debian/*

@@ -1,8 +1,4 @@
-// -*- c++ -*-
-/* $Id: context.ccg,v 1.3 2006/06/10 15:26:24 murrayc Exp $ */
-
 /* 
- *
  * Copyright 1998-1999 The Gtk-- Development Team
  * Copyright 2001      Free Software Foundation
  *
@@ -22,7 +18,6 @@
  */
 
 #include <pango/pangocairo.h>
-#include <pango/pango-types.h> //For PANGO_MATRIX_INIT
 
 namespace Pango
 {
@@ -30,7 +25,7 @@ namespace Pango
 Glib::ArrayHandle< Glib::RefPtr<FontFamily> > Context::list_families() const
 {
   //Get array:
-  PangoFontFamily** pFamilies = 0;
+  PangoFontFamily** pFamilies = nullptr;
   int n_families = 0;
   pango_context_list_families(const_cast<PangoContext*>(gobj()), &pFamilies, &n_families);
   
@@ -40,7 +35,7 @@ Glib::ArrayHandle< Glib::RefPtr<FontFamily> > Context::list_families() const
 
 Pango::FontMetrics Context::get_metrics(const FontDescription& desc) const
 {
-  return FontMetrics(pango_context_get_metrics(const_cast<PangoContext*>(gobj()), desc.gobj(), 0));
+  return FontMetrics(pango_context_get_metrics(const_cast<PangoContext*>(gobj()), desc.gobj(), nullptr));
 }
 
 ListHandle_Item Context::itemize(const Glib::ustring& text, const AttrList& attrs) const
@@ -48,7 +43,7 @@ ListHandle_Item Context::itemize(const Glib::ustring& text, const AttrList& attr
   return ListHandle_Item(
       pango_itemize(const_cast<PangoContext*>(gobj()),
                     text.c_str(), 0, text.bytes(),
-                    const_cast<PangoAttrList*>(attrs.gobj()), 0),
+                    const_cast<PangoAttrList*>(attrs.gobj()), nullptr),
       Glib::OWNERSHIP_DEEP);
 }
 
@@ -80,4 +75,3 @@ Matrix Context::get_matrix() const
 }
 
 } /* namespace Pango */
-
