@@ -6,7 +6,7 @@ Source: pangomm
 Section: libs
 Priority: optional
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
-Uploaders: Jeremy Bicha <jbicha@debian.org>, Michael Biebl <biebl@debian.org>
+Uploaders: Jeremy Bicha <jbicha@ubuntu.com>, Michael Biebl <biebl@debian.org>
 Build-Depends: debhelper-compat (= 13),
                dh-sequence-gnome,
                doxygen,
@@ -14,10 +14,12 @@ Build-Depends: debhelper-compat (= 13),
                libcairomm-1.0-dev (>= 1.12.0),
                libglibmm-2.4-dev (>= 2.48.0),
                libpango1.0-dev (>= 1.41.0),
-               meson (>= 0.54.0),
+               libxml-parser-perl,
+               meson (>= 0.55.0),
                mm-common (>= 0.9.8),
                xsltproc
-Standards-Version: 4.5.0
+Standards-Version: 4.6.1
+Rules-Requires-Root: no
 Vcs-Browser: https://salsa.debian.org/gnome-team/pangomm
 Vcs-Git: https://salsa.debian.org/gnome-team/pangomm.git
 Homepage: http://gtkmm.org

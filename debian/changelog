@@ -1,3 +1,30 @@
+pangomm (2.46.3-1) unstable; urgency=medium
+
+  * New upstream release
+  * debian/control.in: Bump minimum meson to 0.55.0
+  * Stop installing README.md: it only contains build instructions
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Wed, 21 Sep 2022 12:35:07 -0400
+
+pangomm (2.46.2-2) unstable; urgency=medium
+
+  * debian/watch: Watch for 2.46.x releases.
+    pangomm2.48 is a new ABI series for gtkmm 4
+    and will be packaged separately
+  * Set Rules-Requires-Root: no
+  * Bump Standards-Version to 4.6.1
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Thu, 01 Sep 2022 16:48:29 -0400
+
+pangomm (2.46.2-1) unstable; urgency=medium
+
+  * New upstream release
+  * debian/control.in: Build-Depend on libxml-parser-perl
+  * debian/rules: Enable maintainer mode. Required because we want to
+    ensure we build the docs from source.
+
+ -- Jeremy Bicha <jeremy.bicha@canonical.com>  Tue, 22 Feb 2022 09:45:48 -0500
+
 pangomm (2.46.1-1) unstable; urgency=medium
 
   * New upstream release

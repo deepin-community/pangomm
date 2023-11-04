@@ -1,5 +1,3 @@
-/* $Id: context.hg,v 1.7 2006/06/10 15:26:24 murrayc Exp $ */
-
 /* context.h
  * 
  * Copyright (C) 1998-1999 The gtkmm Development Team 
@@ -30,7 +28,7 @@
 #include <pangomm/item.h>
 #include <pangomm/attrlist.h>
 #include <pangomm/types.h> //For Matrix
-#include <pango/pango-context.h>
+#include <pango/pango.h>
 #include <cairomm/context.h>
 #include <cairomm/fontoptions.h>
 
@@ -40,7 +38,6 @@ _PINCLUDE(glibmm/private/object_p.h)
 namespace Pango
 {
 
-_CC_INCLUDE(pango/pango-enum-types.h)
 _WRAP_ENUM(Direction, PangoDirection, decl_prefix PANGOMM_API)
 _WRAP_ENUM(GravityHint, PangoGravityHint, decl_prefix PANGOMM_API)
 
@@ -91,8 +88,8 @@ public:
 
   _WRAP_METHOD(void set_font_map(const Glib::RefPtr<FontMap>& font_map), pango_context_set_font_map)
 
-  _WRAP_METHOD(Glib::RefPtr<FontMap> get_font_map(), pango_context_get_font_map)
-  _WRAP_METHOD(Glib::RefPtr<const FontMap> get_font_map() const, pango_context_get_font_map)
+  _WRAP_METHOD(Glib::RefPtr<FontMap> get_font_map(), pango_context_get_font_map, refreturn)
+  _WRAP_METHOD(Glib::RefPtr<const FontMap> get_font_map() const, pango_context_get_font_map, refreturn, constversion)
 
   _WRAP_METHOD(guint get_serial() const, pango_context_get_serial)
 
@@ -177,4 +174,3 @@ public:
 };
 
 } /* namespace Pango */
-

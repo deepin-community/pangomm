@@ -21,16 +21,13 @@
 #include <pangomm/rectangle.h>
 #include <pangomm/color.h>
 #include <pangomm/fontdescription.h>
-#include <pango/pango-attributes.h>
+#include <pango/pango.h>
 #include <glibmm/slisthandle.h>
 
 _DEFS(pangomm,pango)
 
 namespace Pango
 {
-
-_CC_INCLUDE(pango/pango-enum-types.h)
-
 /** Pango::AttrType distinguishes between different types of attributes.
  * Along with the predefined values, it is possible to allocate additional values for
  * custom attributes using Pango::Attribute::register_type(). The predefined values
