@@ -1,3 +1,13 @@
+pangomm (2.46.4-1) unstable; urgency=medium
+
+  * New upstream release
+  * debian/libpangomm-1.4-1v5.docs: Install README.md, but
+    AUTHORS is no longer provided
+  * Stop using debian/control.in and dh-sequence-gnome
+  * Update standards version to 4.6.2, no changes needed
+
+ -- Jeremy Bícha <jbicha@ubuntu.com>  Fri, 16 Feb 2024 07:33:10 -0500
+
 pangomm (2.46.3-1) unstable; urgency=medium
 
   * New upstream release

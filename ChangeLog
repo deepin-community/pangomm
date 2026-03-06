@@ -1,3 +1,92 @@
+2024-01-27  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  2.46.4
+
+2023-12-11  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  meson.build: Don't fail if warning_level=everything
+
+2023-07-11  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Remove AUTHORS, HACKING, README.SUN; add info to README.md
+
+  See gtkmm#140
+
+2023-07-11  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Update pangomm.doap
+
+2023-06-27  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  README.win32.md: Some more updates
+
+  Some needed info are missing, so make up for them.  Also, remove the
+  `test` target for NMake, since it does not exist for the package.
+
+2023-06-27  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  README.win32: Convert to MarkDown
+
+  Convert to MarkDown format so that the formatting is easier on the eye, and
+  switch to UNIX line endings.
+  
+  Also update the info in there so that the actual build situation is better
+  refleted, especially in regards to Visual Studio builds.  Re-organize items
+  for the Meson builds to be under their respective headers for MinGW and Visual
+  Studio.
+
+2023-05-04  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Coverage: Don't use deprecated pango_coverage_ref/unref()
+
+  They are deprecated since pango 1.52.0. It has been possible
+  to use g_object_ref/unref() since pango 1.44.0.
+
+2023-05-04  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Doxyfile.in: Remove obsolete entries
+
+2023-03-25  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  meson.build: Simplify if-file-exists test
+
+2023-03-25  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  README.md: meson -> meson setup
+
+2023-03-25  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Doxyfile.in: Don't hide undocumented classes
+
+  Might make the inheritance diagrams less incomplete when Doxygen's
+  tag files are not perfect.
+
+2023-01-04  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  meson.build: Simplify lookup of python command
+
+  See libsigcplusplus PR#83
+
+2023-01-04  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  meson.build: Fix the evaluation of is_git_build on Windows
+
+  See gtkmm#131
+
+2023-01-04  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Meson build: Don't copy files with configure_file()
+
+  It's deprecated from Meson 0.64. The replacement, fs.copyfile(),
+  is not useful here. It only copies from the source directory to
+  the build directory.
+
+2022-09-27  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  meson.build: Detect if we build from a git subtree
+
+  See gtkmm!72 (William Roy)
+
 2022-09-21  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
 
   2.46.3
@@ -1387,125 +1476,4 @@
 2011-01-08  Murray Cumming  <murrayc@murrayc.com>
 
   2.27.1
-
-2011-01-08  Murray Cumming  <murrayc@murrayc.com>
-
-  Added missing file
-
-2011-01-08  Murray Cumming  <murrayc@murrayc.com>
-
-  LayoutIter: Wrap this as a boxed type, which needs less code.
-
-  	* pango/src/layoutiter.[hg|ccg]: PangoLayoutIter became a boxed type at some
-  	point, with a pango_layout_iter_copy() function, so we can now wrap it
-  	normally without so much hand-coding. This also adds a copy constructor.
-  	* pango/src/layout.ccg: get_iter(): Use the LayoutIter copy constructor
-  	instead of the crappy old assign_gobj() function. Also deprecate this
-  	method, adding a get_iter(void), now that the copy constructor allows us to
-  	use LayoutIter as a return type.
-
-2011-01-08  Murray Cumming  <murrayc@murrayc.com>
-
-  Improve the generated API documentation.
-
-  * pango/src/pango_methods.defs: Regenerated with h2defs.py
-  * pango/src/pango_extra_objects.defs: Added some object definitions to help
-  the documentation generator, avoiding warnings about not being able to
-  transform C function names into C++ function names. I did the same thing in
-  gtkmm a few months ago.
-  * pango/src/filelist.am: Mention the new files.
-  * pango/src/pango.defs: Include the new file.
-
-2011-01-08  Murray Cumming  <murrayc@murrayc.com>
-
-  Added conversions used by gtkmm.
-
-  * tools/m4/convert_pango.m4: Added the extra conversions that were in the
-  gtkmm copy of this file. They will probably be needed by other modules so
-  it makes sense to keep them to here to avoid duplication.
-
-2011-01-07  Murray Cumming  <murrayc@murrayc.com>
-
-  Allow other modules to use the m4 files.
-
-  	* codegen/Makefile.am: Install the m4 files, like gtkmm installs its files.
-  	* pango/pangomm.pc.in: Add the gmmproc4mdir variable so that other modules such
-  	as gtkmm and cluttermm can get the path to the m4 file, to avoid
-  	duplicating its contents.
-
-2011-01-07  Murray Cumming  <murrayc@murrayc.com>
-
-  Fix the build with --enable-warnings=fatal.
-
-  	* configure.ac: Add no-long-long to avoid a warning caused by a newer glib.
-  	Also avoid use of deprecated GLIBMM API and make sure that GSEAL is defined.
-
-2010-12-09  Murray Cumming  <murrayc@murrayc.com>
-
-  Include convert_glibmm.m4 instead of convert_gtkmm.m4.
-
-  * tools/m4/convert.m4: Inlcude convert_glibmm.m4, just added to glibmm,
-  instead of convert_gtkmm.m4, which glibmm no longer provides.
-  Also include convert_pangomm.m4 - we probably used the copy in glibmm until
-  now.
-
-2010-10-01  Armin Burgmeier  <armin@arbur.net>
-
-  Add support for MSVC 2010 and 64 bit to MSVC project files
-
-  2010-09-30  Armin Burgmeier  <armin@arbur.net>
-  
-  	* MSVC_Net2005/gendef/gendef.vcproj:
-  	* MSVC_Net2005/pangomm.sln:
-  	* MSVC_Net2005/pangomm/pangomm.vcproj:
-  	* MSVC_Net2008/gendef/gendef.vcproj:
-  	* MSVC_Net2008/pangomm.sln:
-  	* MSVC_Net2008/pangomm/pangomm.vcproj:
-  	* MSVC_Net2010/filelist.am:
-  	* MSVC_Net2010/gendef/gendef.cc:
-  	* MSVC_Net2010/gendef/gendef.vcxproj:
-  	* MSVC_Net2010/gendef/gendef.vcxproj.filters:
-  	* MSVC_Net2010/pangomm.sln:
-  	* MSVC_Net2010/pangomm/pangomm.rc.in:
-  	* MSVC_Net2010/pangomm/pangomm.vcxproj:
-  	* MSVC_Net2010/pangomm/pangomm.vcxproj.filters:
-  	* Makefile.am:
-  	* configure.ac: Add support for MSVC 2010 and 64 bit.
-
-2010-06-06  Murray Cumming  <murrayc@murrayc.com>
-
-  Remove unused file.
-
-2010-05-04  Murray Cumming  <murrayc@murrayc.com>
-
-  2.26.2
-
-2010-05-04  Murray Cumming  <murrayc@murrayc.com>
-
-  Documentation: Main page: Improve, linking to class and correcting pkg-config
-
-  * pango/pangomm.h: Simplify the text, improving the link, and link to
-  Pango::Layout as a starting point. Correct the pkg-config check from pangomm
-  to pangomm-1.4.
-
-2010-04-27  David King  <davidk@openismus.com>
-
-  Update link formatting in main page of documentation
-
-  * pango/pangomm.h: Add link text to Pango link.
-
-2010-04-23  David King  <davidk@openismus.com>
-
-  Add main page to Doxygen documentation
-
-  * docs/Makefile.am: Parse pango/pangomm.h for documentation.
-  * pango/pangomm.h: Add main page to Doxygen documentation.
-
-2010-04-18  Olav Vitters  <olav@vitters.nl>
-
-  Fix doap file
-
-2010-04-16  Murray Cumming  <murrayc@murrayc.com>
-
-  2.26.1
 
